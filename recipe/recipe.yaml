@@ -87,6 +87,14 @@ requirements:
     # those before it will emit cflags for cairo/libpng/pango.
     - zlib
     - expat
+    # freetype2.pc (named by fontconfig.pc, so needed for cairo) and
+    # harfbuzz.pc (named by pango.pc, so needed for pangocairo) live in
+    # packages that nothing here pulls in transitively: cairo depends only on
+    # `libfreetype6`/`libfreetype` and pango only on `libharfbuzz`, none of
+    # which ship a .pc file. Without these two, meson fails outright at
+    # `Dependency lookup for cairo` and `weston-editor requires pangocairo`.
+    - freetype
+    - libharfbuzz-devel
     # vnc/rdp/pipewire backends are built here (needed at build time to link
     # the backend modules) but are OPTIONAL at runtime -- see run_constraints
     # and ignore_run_exports below. Each backend is a separate dlopen'd module,
