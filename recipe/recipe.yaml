@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "16.0.0"
+  version: "16.0.1"
 
 package:
   name: weston
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://gitlab.freedesktop.org/wayland/weston/-/releases/${{ version }}/downloads/weston-${{ version }}.tar.xz
-  sha256: dfb32e2bccabda957b94a8d0ec6075acd18c71c87ebc543ee3e618d294ca0f7f
+  sha256: 54f889d236d73f497e7929f355ad87f03c2bbcde945bb29fbbae2a4b3050e467
 
 build:
   number: 0
